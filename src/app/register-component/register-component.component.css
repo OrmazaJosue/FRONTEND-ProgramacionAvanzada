@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --rojo: #E50914;
+  --fondo: #141414;
+  --azul: #0000FF;
+  --text: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(234, 220, 220, 0.952);
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  padding: 30px 0;
+  background-color: rgba(234, 220, 220, 0.8);
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header .contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logotipo {
+  font-family: 'Kaushan Script', cursive;
+  font-weight: normal;
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: normal;
+  color: #000000;
+}
+
+.logotipo i {
+  margin-right: 8px;
+  font-size: 24px;
+  color: #000000;
+}
+
+.my-4 i {
+  margin-right: 8px;
+  font-size: 28px;
+  color: #000000;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
+header nav a {
+  color: #000000;
+  text-decoration: none;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+header nav a i {
+  margin-right: 5px;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #FF6B6B;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+header nav a:hover::after,
+header nav a.active::after {
+  transform: translateX(0);
+}
+
+header nav a:hover {
+  color: #FFFFFF;
+  background-color: rgba(0, 191, 255, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 191, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+header nav a.active {
+  color: #FFFFFF;
+  background-color: rgba(0, 191, 255, 0.4);
+}
+
+/* Estilos para el contenido principal */
+.pelicula-principal {
+  font-size: 16px;
+  min-height: 40.62em;
+  color: var(--blanco);
+  background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0, 0, 0, .50) 100%), url(/backdropp.jpg);
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 3.12em;
+  display: flex;
+  align-items: end;
+}
+
+.pelicula-principal .contenedor {
+  margin: 0 auto;
+  margin-bottom: 6.25em;
+}
+
+.pelicula-principal .titulo {
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
+}
+
+.pelicula-principal .descripcion {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.75em;
+  max-width: 50%;
+  margin-bottom: 1.25em;
+}
+
+.pelicula-principal .boton {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: var(--blanco);
+  margin-right: 1.25em;
+  cursor: pointer;
+  transition: .3s ease all;
+  font-size: 1.12em;
+}
+
+.pelicula-principal .boton:hover {
+  background: #000000;
+  color: var(--fondo);
+}
+
+.pelicula-principal .boton i {
+  margin-right: 1.25em;
+}
+
+/* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
+.contenedor-titulo-controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.contenedor-titulo-controles h3 {
+  color: #000000;
+  font-size: 30px;
+}
+
+.contenedor-titulo-controles .indicadores button {
+  background: #000000;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+  background: var(--morado);
+}
+
+/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+.peliculas-recomendadas {
+  margin-bottom: 70px;
+}
+
+.peliculas-recomendadas .contenedor-principal {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: var(--blanco);
+  cursor: pointer;
+  z-index: 500;
+  transition: .2s ease all;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda:hover,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha:hover {
+  background: rgba(0, 0, 0, .9);
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda {
+  left: 0;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-derecha {
+  right: 0;
+}
+
+/* ---- ----- ----- Carousel ----- ----- ----- */
+/* ---- ----- ----- Carousel ----- ----- ----- */
+.contenedor-carousel {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  transition: transform 0.1s ease-in-out;
+}
+
+.pelicula {
+  min-width: 20%;
+  transition: .3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+}
+
+.pelicula.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.pelicula img {
+  width: 100%;
+  height: 200px;
+  /* Ajusta la altura según tus necesidades */
+  object-fit: cover;
+  vertical-align: top;
+}
+
+#flecha-izquierda,
+#flecha-derecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#flecha-izquierda {
+  left: 10px;
+}
+
+#flecha-derecha {
+  right: 10px;
+}
+
+.indicadores {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.indicadores button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.indicadores .activo {
+  background-color: rgb(0, 0, 0);
+  color: black;
+}
+
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+@media screen and (max-width: 800px) {
+  header .logotipo {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+
+  header .contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pelicula-principal {
+    font-size: 14px;
+  }
+
+  .pelicula-principal .descripcion {
+    max-width: 100%;
+  }
+
+  .peliculas-recomendadas .contenedor-carousel {
+    overflow: visible;
+  }
+
+  .peliculas-recomendadas .contenedor-carousel .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .peliculas-recomendadas .indicadores,
+  .peliculas-recomendadas .flecha-izquierda,
+  .peliculas-recomendadas .flecha-derecha {
+    display: none;
+  }
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 2rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(248, 250, 250, 0.2);
+}
+
+.card-header {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  border-bottom: none;
+}
+
+.card-body {
+  background-color: var(--card-bg);
+  color: var(--text);
+  padding: 1.5rem;
+}
+
+.card-text {
+  color: rgb(255, 255, 255);
+  text-align: justify;
+}
+
+.card-footer {
+  background-color: var(--card-bg);
+  border-top: 1px solid rgba(240, 240, 240, 0.534);
+  color: rgb(255, 255, 255);
+  padding: 1rem;
+}
+
+.card-footer.text-muted {
+  color: #f0f5f8;
+  /* Gris tenue */
+}
+
+
+/* Estilo general para el footer */
+footer {
+  background-color: rgba(212, 196, 228, 0.726);
+  color: #000;
+  /* Color del texto */
+  width: 100%;
+  /* Asegura que el footer ocupe todo el ancho de la página */
+  position: relative;
+  /* Para asegurar que los elementos internos se alineen correctamente */
+  padding: 1rem 0;
+  /* Espaciado superior e inferior */
+  box-sizing: border-box;
+  /* Asegura que el padding se incluya en el ancho total */
+}
+
+/* Contenedor dentro del footer */
+footer .container {
+  max-width: 1200px;
+  /* Tamaño máximo del contenedor (ajusta según tu diseño) */
+  margin: 0 auto;
+  /* Centra el contenedor dentro del footer */
+  padding: 0 1rem;
+  /* Espaciado horizontal dentro del contenedor */
+}
+
+/* Centra el texto dentro del footer */
+footer h5,
+footer p {
+  margin: 0;
+  text-align: center;
+  /* Centra el texto */
+}
+
+/* Estilo para los íconos de redes sociales */
+footer .social-media {
+  display: flex;
+  /* Usa flexbox para alinear los íconos */
+  justify-content: center;
+  /* Centra los íconos horizontalmente */
+  margin-top: 1rem;
+  /* Espaciado superior entre el texto y los íconos */
+}
+
+footer .social-media a {
+  color: #000;
+  /* Color de los íconos */
+  margin: 0 0.5rem;
+  /* Espaciado entre íconos */
+  font-size: 1.5rem;
+  /* Tamaño del ícono */
+  text-decoration: none;
+  /* Quita el subrayado de los íconos */
+}
+
+footer .social-media a:hover {
+  color: #000000;
+  /* Color del ícono al pasar el cursor */
+}

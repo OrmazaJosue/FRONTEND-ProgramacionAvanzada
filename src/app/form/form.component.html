@@ -1,0 +1,198 @@
+<div class="body-form">
+  <div class="container-fluid mt-5 mb-5 p-0">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">Formulario de Registro</h5>
+          </div>
+          <div class="card-body">
+            <form *ngIf="form" [formGroup]="form" (ngSubmit)="save($event)">
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('nombre')?.invalid && form.get('nombre')?.touched, 'has-success': form.get('nombre')?.valid }">
+                <label for="nombre">
+                  <i class="fas fa-user"></i>
+                  <small><strong class="text-muted"> Nombres</strong></small>
+                </label>
+                <input class="form-control" formControlName="nombre" placeholder="Nombres" required />
+                <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="text-danger">
+                  <div *ngIf="form.get('nombre')?.errors?.['required']">Se requiere campo.</div>
+                  <div *ngIf="form.get('nombre')?.errors?.['pattern']">Formato inválido.</div>
+                  <div *ngIf="form.get('nombre')?.errors?.['minWords']">Debe contener al menos 2 nombres.</div>
+                  <div *ngIf="form.get('nombre')?.errors?.['maxLength']">Debe contener máximo 18 caracteres.</div>
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('apellido')?.invalid && form.get('apellido')?.touched, 'has-success': form.get('apellido')?.valid }">
+                <label for="apellido">
+                  <i class="fas fa-user"></i>
+                  <small><strong class="text-muted"> Apellidos</strong></small>
+                </label>
+                <input class="form-control" formControlName="apellido" placeholder="Apellidos" required />
+                <div *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched" class="text-danger">
+                  <div *ngIf="form.get('apellido')?.errors?.['required']">Se requiere campo.</div>
+                  <div *ngIf="form.get('apellido')?.errors?.['pattern']">Formato inválido.</div>
+                  <div *ngIf="form.get('apellido')?.errors?.['minWords']">Debe contener al menos 2 apellidos.</div>
+                  <div *ngIf="form.get('apellido')?.errors?.['maxLength']">Debe contener máximo 36 caracteres.</div>
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('fechaNacimiento')?.invalid && form.get('fechaNacimiento')?.touched, 'has-success': form.get('fechaNacimiento')?.valid }">
+                <label for="fechaNacimiento">
+                  <i class="fas fa-calendar-alt"></i>
+                  <small><strong class="text-muted"> Fecha de Nacimiento</strong></small>
+                </label>
+                <input class="form-control" formControlName="fechaNacimiento" type="date" required />
+                <div *ngIf="form.get('fechaNacimiento')?.invalid && form.get('fechaNacimiento')?.touched"
+                  class="text-danger">
+                  <div *ngIf="form.get('fechaNacimiento')?.errors?.['required']">Se requiere campo.</div>
+                  <div *ngIf="form.get('fechaNacimiento')?.errors?.['age']">Debes ser mayor de 18 años.</div>
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('numeroCedula')?.invalid && form.get('numeroCedula')?.touched, 'has-success': form.get('numeroCedula')?.valid }">
+                <label for="numeroCedula">
+                  <i class="fas fa-id-card"></i>
+                  <small><strong class="text-muted">Número de Cédula</strong></small>
+                </label>
+                <input class="form-control" formControlName="numeroCedula" placeholder="Número de Cédula" required />
+                <div *ngIf="form.get('numeroCedula')?.invalid && form.get('numeroCedula')?.touched" class="text-danger">
+                  <div *ngIf="form.get('numeroCedula')?.errors?.['required']">Se requiere campo.</div>
+                  <div *ngIf="form.get('numeroCedula')?.errors?.['maxlength']">Máximo 10 caracteres.</div>
+                  <div *ngIf="form.get('numeroCedula')?.errors?.['pattern']">Solo números permitidos.</div>
+                  <div *ngIf="form.get('numeroCedula')?.errors?.['cedulaInvalida']">Número de cédula inválido.</div>
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('estadoCivil')?.invalid && form.get('estadoCivil')?.touched, 'has-success': form.get('estadoCivil')?.valid }">
+                <label for="estadoCivil">
+                  <i class="fas fa-heart"></i>
+                  <small><strong class="text-muted"> Estado Civil </strong></small>
+                </label>
+                <div>
+                  <label><input formControlName="estadoCivil" type="radio" value="Soltero(a)" required />
+                    Soltero(a) </label>
+                  <label><input formControlName="estadoCivil" type="radio" value="Casado(a)" required />
+                    Casado(a) </label>
+                  <label><input formControlName="estadoCivil" type="radio" value="Divorciado(a)" required />
+                    Divorciado(a) </label>
+                  <label><input formControlName="estadoCivil" type="radio" value="Viudo(a)" required /> Viudo(a)
+                  </label>
+                  <label><input formControlName="estadoCivil" type="radio" value="Unión Libre" required /> Unión
+                    Libre </label>
+                </div>
+                <div *ngIf="form.get('estadoCivil')?.invalid && form.get('estadoCivil')?.touched" class="text-danger">
+                  Se requiere campo.
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('coloniaBarrio')?.invalid && form.get('coloniaBarrio')?.touched, 'has-success': form.get('coloniaBarrio')?.valid }">
+                <label for="coloniaBarrio">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <small><strong class="text-muted"> Ubicación del Terreno</strong></small>
+                </label>
+                <input class="form-control" formControlName="coloniaBarrio" placeholder="Ubicación del Terreno"
+                  required />
+                <div *ngIf="form.get('coloniaBarrio')?.invalid && form.get('coloniaBarrio')?.touched"
+                  class="text-danger">
+                  Se requiere campo.
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('estadoProvincia')?.invalid && form.get('estadoProvincia')?.touched, 'has-success': form.get('estadoProvincia')?.valid }">
+                <label for="estadoProvincia">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <small><strong class="text-muted"> Provincia</strong></small>
+                </label>
+                <select class="form-control" formControlName="estadoProvincia" required>
+                  <option value="">Seleccione una provincia</option>
+                  <option *ngFor="let estadoProvincia of estadoProvincias" [value]="estadoProvincia">{{ estadoProvincia
+                    }}</option>
+                </select>
+                <div *ngIf="form.get('estadoProvincia')?.invalid && form.get('estadoProvincia')?.touched"
+                  class="text-danger">
+                  Debes seleccionar un estado/provincia.
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('ciudad')?.invalid && form.get('ciudad')?.touched, 'has-success': form.get('ciudad')?.valid }">
+                <label for="ciudad">
+                  <i class="fas fa-city"></i>
+                  <small><strong class="text-muted"> Ciudad</strong></small>
+                </label>
+                <select class="form-control" formControlName="ciudad" required>
+                  <option value="">Seleccione una ciudad</option>
+                  <option *ngFor="let ciudad of ciudadesDisponibles" [value]="ciudad">{{ ciudad }}</option>
+                </select>
+                <div *ngIf="form.get('ciudad')?.invalid && form.get('ciudad')?.touched" class="text-danger">
+                  Debes seleccionar una ciudad.
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('telefono')?.invalid && form.get('telefono')?.touched, 'has-success': form.get('telefono')?.valid }">
+                <label for="telefono">
+                  <i class="fas fa-phone"></i>
+                  <small><strong class="text-muted"> Teléfono de Contacto</strong></small>
+                </label>
+                <input class="form-control" formControlName="telefono" placeholder="Teléfono de Contacto" required />
+                <div *ngIf="form.get('telefono')?.invalid && form.get('telefono')?.touched" class="text-danger">
+                  <div *ngIf="form.get('telefono')?.errors?.['required']">Se requiere campo.</div>
+                  <div *ngIf="form.get('telefono')?.errors?.['maxlength']">Máximo 10 caracteres.</div>
+                  <div *ngIf="form.get('telefono')?.errors?.['pattern']">Solo números permitidos.</div>
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('correoElectronico')?.invalid && form.get('correoElectronico')?.touched, 'has-success': form.get('correoElectronico')?.valid }">
+                <label for="correoElectronico">
+                  <i class="fas fa-envelope"></i>
+                  <small><strong class="text-muted"> Correo Electrónico</strong></small>
+                </label>
+                <input class="form-control" formControlName="correoElectronico" type="email"
+                  placeholder="Correo Electrónico" required />
+                <div *ngIf="form.get('correoElectronico')?.invalid && form.get('correoElectronico')?.touched"
+                  class="text-danger">
+                  <div *ngIf="form.get('correoElectronico')?.errors?.['required']">Se requiere campo.</div>
+                  <div *ngIf="form.get('correoElectronico')?.errors?.['email']">Formato de correo electrónico inválido.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('tipoTerreno')?.invalid && form.get('tipoTerreno')?.touched, 'has-success': form.get('tipoTerreno')?.valid }">
+                <label for="tipoTerreno">
+                  <i class="fas fa-landmark"></i>
+                  <small><strong class="text-muted"> Elija un terreno</strong></small>
+                </label>
+                <select class="form-control" formControlName="tipoTerreno" required>
+                  <option value="">Seleccione un tipo de terreno</option>
+                  <option *ngFor="let tipo of tipoTerreno" [value]="tipo">{{ tipo }}</option>
+                </select>
+                <div *ngIf="form.get('tipoTerreno')?.invalid && form.get('tipoTerreno')?.touched" class="text-danger">
+                  Debes seleccionar un terreno.
+                </div>
+              </div>
+              <div class="form-group"
+                [ngClass]="{ 'has-danger': form.get('documentosAdjuntos')?.invalid && form.get('documentosAdjuntos')?.touched, 'has-success': form.get('documentosAdjuntos')?.valid }">
+                <label for="documentosAdjuntos">
+                  <i class="fas fa-file"></i>
+                  <small><strong class="text-muted"> Documentos Requeridos (adjuntar, copia de cédula y papeleta de
+                      votación)</strong></small>
+                </label>
+                <!-- Aceptar solo archivos PDF -->
+                <input type="file" (change)="onFileSelected($event)" class="form-control-file" required accept=".pdf" />
+                <div *ngIf="form.get('documentosAdjuntos')?.invalid && form.get('documentosAdjuntos')?.touched"
+                  class="text-danger">
+                  <div *ngIf="form.get('documentosAdjuntos')?.errors?.['required']">Se requiere campo.</div>
+                  <div *ngIf="form.get('documentosAdjuntos')?.errors?.['fileType']">Solo se permiten archivos PDF.</div>
+                  <div *ngIf="form.get('documentosAdjuntos')?.errors?.['maxSize']">El archivo no debe exceder los 10MB.
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary col-12">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

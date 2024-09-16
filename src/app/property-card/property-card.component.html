@@ -1,0 +1,149 @@
+<body>
+  <header>
+    <div class="contenedor">
+      <h2 class="logotipo">LAND MANAGER</h2>
+      <nav>
+        <a href="#" class="activo"> Inicio</a>
+        <a class="nav-link" [routerLink]="['/property-card']" routerLinkActive="active">
+          <i class="fas fa-book"></i> Catálogo
+        </a>
+        <a class="nav-link" [routerLink]="['/formulario']" routerLinkActive="active">
+          <i class="fas fa-file-alt"></i> Formulario
+        </a>
+      </nav>
+    </div>
+  </header>
+  <section class="contenido">
+    <div class="mostrador" id="mostrador">
+      <div class="fila">
+        <div class="item" data-img-src="/2.jpeg" data-modelo="Terreno Montañoso" precio="1.800"
+          data-descripcion="Descripción detallada del terreno montañoso" data-metros="3500 m²"
+          data-ubicacion="Sierra, Chimborazo">
+          <div class="contenedor-foto">
+            <img src="/1.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Montañoso</p>
+
+          <span class="precio">$1.800</span>
+        </div>
+
+        <div class="item" data-img-src="/2.jpeg" data-modelo="Terreno Campestre"
+          data-descripcion="Terreno en una zona campestre, ideal para una casa de campo" data-metros="1800 m²"
+          precio="3.800" data-ubicacion="Campo Alegre, Cotopaxi">
+          <div class="contenedor-foto">
+            <img src="/2.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Campestre </p>
+          <span class="precio">$3.800</span>
+        </div>
+        <div class="item" onclick="cargar(this)" data-img-src="/3.jpeg" data-modelo="Terreno Residencial" precio="2.800"
+          data-descripcion="Terreno en una zona residencial, ideal para construir una casa familiar"
+          data-metros="9500 m²" data-ubicacion="Colonia Los Álamos, Guayaquil" onclick="cargar(this)">
+          <div class="contenedor-foto">
+            <img src="/3.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Residencial</p>
+          <span class="precio">$2.800</span>
+        </div>
+
+        <div class="item" data-img-src="/4.jpeg" onclick="cargar(this)" data-modelo="Terreno Urbano" precio="3.600"
+          data-descripcion="Terreno ubicado en el centro de la ciudad, excelente para un proyecto comercial"
+          data-metros="2500 m²" data-ubicacion="Avenida Principal, Quito">
+          <div class="contenedor-foto">
+            <img src="/4.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Urbano</p>
+          <span class="precio">$3.600</span>
+        </div>
+
+        <div class="item" data-img-src="/5.jpeg" onclick="cargar(this)" data-modelo="Terreno Rural" precio="1.800"
+          data-descripcion="Terreno amplio y tranquilo, perfecto para la agricultura." data-metros="6500 m²"
+          data-ubicacion="Valle Verde, Loja">
+          <div class="contenedor-foto">
+            <img src="/5.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Rural</p>
+          <span class="precio">$1.800</span>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="item" data-img-src="/6.jpeg" onclick="cargar(this)" data-modelo="Terreno Histórico" precio="1.4840"
+          data-descripcion="Terreno con valor histórico, excelente para proyectos turísticos" data-metros="5500 m²"
+          data-ubicacion="Centro Campo Cuenca">
+          <div class="contenedor-foto">
+            <img src="/6.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Histórico</p>
+
+          <span class="precio">$ 1.4840</span>
+        </div>
+        <div class="item" data-img-src="/7.jpeg" onclick="cargar(this)" data-modelo="Terreno Comercial" precio="1.800"
+          data-descripcion="Terreno en una zona comercial con alta afluencia de personas" data-metros="1500 m²"
+          data-ubicacion="Boulevard Central, Cuenca">
+          <div class="contenedor-foto">
+            <img src="/7.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Comercial</p>
+          <span class="precio">$ 1.530</span>
+        </div>
+        <div class="item" data-img-src="/8.jpeg" onclick="cargar(this)" data-modelo="Terreno Ecológico" precio="2.81010"
+          data-descripcion="Terreno rodeado de naturaleza, perfecto para un proyecto ecológico" data-metros="3500 m²"
+          data-ubicacion="Reserva Natural, Napo">
+          <div class="contenedor-foto">
+            <img src="/8.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Ecológico</p>
+          <span class="precio">$ 2.088</span>
+        </div>
+        <div class="item" data-img-src="/9.jpeg" onclick="cargar(this)" data-modelo="Terreno Vista al Mar"
+          precio="2.088" data-descripcion="Terreno con vista al mar, perfecto para construir una casa de vacaciones"
+          data-metros="1700 m²" data-ubicacion="Playa Escondida, Manabí">
+          <div class="contenedor-foto">
+            <img src="/9.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Vista al Mar</p>
+          <p class="metros_cuadrados"></p>
+          <p class="ubicacion"></p>
+          <span class="precio">$ 2.500</span>
+        </div>
+        <div class="item" data-img-src="/10.jpeg" onclick="cargar(this)" data-modelo="Terreno Industrial" precio="1.910"
+          data-descripcion="Descripción detallada del terreno montañoso" data-metros="1600 m²"
+          data-ubicacion="Ciudad Montaña">
+          <div class="contenedor-foto">
+            <img src="/10.jpeg" alt="">
+          </div>
+          <p class="descripcion">Terreno Industrial</p>
+
+          <span class="precio">$ 1.910</span>
+        </div>
+      </div>
+    </div>
+    <!-- CONTENEDOR DEL ITEM SELECCIONADO -->
+    <div class="seleccion" id="seleccion">
+      <div class="cerrar" onclick="cerrar()">X</div>
+      <div class="info">
+        <img src="" alt="" id="img">
+        <h2 id="modelo"></h2>
+        <p id="descripcion"></p>
+        <p id="metros_cuadrados"></p>
+        <p id="ubicacion"></p>
+        <span class="precio" id="precio"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-black text-center py-3 ">
+    <div class="container">
+      <h5>Elaborado por ITIN ESPE 2024</h5>
+      <p>&copy; 2024 ESPE. Todos los derechos reservados. Equipo Land Manager</p>
+      <div class="social-media mt-2">
+        <a href="#" class="text-black mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-black mx-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-black mx-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-black mx-2"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+</body>

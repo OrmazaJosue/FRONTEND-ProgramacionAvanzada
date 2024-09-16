@@ -1,0 +1,25 @@
+<body>
+
+  <div class="card">
+    <div class="card-header">
+      <h1 class="card-title">Subir Comprobante de Pago</h1>
+    </div>
+    <div class="card-body">
+      <div class="upload-area">
+        <img [src]="uploadedFileUrl" alt="Uploaded File" class="uploaded-file">
+        <p class="upload-text">No file selected</p>
+      </div>
+      <form [formGroup]="uploadForm" (ngSubmit)="uploadComprobante()">
+        <div class="form-group">
+          <label for="comprobante" class="form-label">Seleccionar Archivo:</label>
+          <input type="file" id="comprobante" formControlName="comprobante" class="form-control-file"
+            (change)="handleFileInput($event)">
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gestion-terrenos']" routerLinkActive="active">
+            <i class="fas fa-user-edit"></i> Subir Comprobante
+          </a>
+        </li>
+      </form>
+    </div>
+  </div>

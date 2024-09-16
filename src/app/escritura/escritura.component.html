@@ -1,0 +1,171 @@
+<header>
+  <div class="contenedor">
+    <h2 class="logotipo">CATALOGO</h2>
+    <nav>
+      <a href="#" class="activo">Inicio</a>
+      <a href="#">Programas</a>
+      <a href="#">Películas</a>
+      <a href="#">Más Recientes</a>
+      <a href="#">Mi lista</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="pelicula-principal">
+    <div class="contenedor">
+      <h3 class="titulo">Interestellar</h3>
+      <p class="descripcion">
+        Narra las aventuras de un grupo de exploradores que hacen uso de un agujero de gusano recientemente descubierto
+        para superar las limitaciones de los viajes espaciales tripulados y vencer las inmensas distancias que tiene un
+        viaje interestelar.
+      </p>
+      <button role="button" class="boton"><i class="fas fa-play"></i>Reproducir</button>
+      <button role="button" class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+    </div>
+  </div>
+
+  <div class="peliculas-recomendadas contenedor">
+    <div class="contenedor-titulo-controles">
+      <h3>Películas Recomendadas</h3>
+      <div class="indicadores"></div>
+    </div>
+
+    <div class="contenedor-principal">
+      <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+
+      <div class="contenedor-carousel">
+        <div class="carousel">
+          <div class="pelicula">
+            <a href="#"><img src="img/1.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/2.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/3.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/4.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/5.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/6.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/7.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/1.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/2.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/3.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/1.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/2.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/3.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/4.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/5.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/6.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/7.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/1.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/2.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/3.png" alt=""></a>
+          </div>
+          <div class="pelicula">
+            <a href="#"><img src="img/4.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+
+      <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+    </div>
+  </div>
+</main>
+
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+<script src="js/main.js">
+  const fila = document.querySelector('.contenedor-carousel');
+  const peliculas = document.querySelectorAll('.pelicula');
+
+  const flechaIzquierda = document.getElementById('flecha-izquierda');
+  const flechaDerecha = document.getElementById('flecha-derecha');
+
+  // ? ----- ----- Event Listener para la flecha derecha. ----- -----
+  flechaDerecha.addEventListener('click', () => {
+    fila.scrollLeft += fila.offsetWidth;
+
+    const indicadorActivo = document.querySelector('.indicadores .activo');
+    if (indicadorActivo.nextSibling) {
+      indicadorActivo.nextSibling.classList.add('activo');
+      indicadorActivo.classList.remove('activo');
+    }
+  });
+
+  // ? ----- ----- Event Listener para la flecha izquierda. ----- -----
+  flechaIzquierda.addEventListener('click', () => {
+    fila.scrollLeft -= fila.offsetWidth;
+
+    const indicadorActivo = document.querySelector('.indicadores .activo');
+    if (indicadorActivo.previousSibling) {
+      indicadorActivo.previousSibling.classList.add('activo');
+      indicadorActivo.classList.remove('activo');
+    }
+  });
+
+  // ? ----- ----- Paginacion ----- -----
+  const numeroPaginas = Math.ceil(peliculas.length / 5);
+  for (let i = 0; i < numeroPaginas; i++) {
+    const indicador = document.createElement('button');
+
+    if (i === 0) {
+      indicador.classList.add('activo');
+    }
+
+    document.querySelector('.indicadores').appendChild(indicador);
+    indicador.addEventListener('click', (e) => {
+      fila.scrollLeft = i * fila.offsetWidth;
+
+      document.querySelector('.indicadores .activo').classList.remove('activo');
+      e.target.classList.add('activo');
+    });
+  }
+
+  // ? ----- ----- Hover ----- -----
+  peliculas.forEach((pelicula) => {
+    pelicula.addEventListener('mouseenter', (e) => {
+      const elemento = e.currentTarget;
+      setTimeout(() => {
+        peliculas.forEach(pelicula => pelicula.classList.remove('hover'));
+        elemento.classList.add('hover');
+      }, 300);
+    });
+  });
+
+  fila.addEventListener('mouseleave', () => {
+    peliculas.forEach(pelicula => pelicula.classList.remove('hover'));
+  });
+</script>

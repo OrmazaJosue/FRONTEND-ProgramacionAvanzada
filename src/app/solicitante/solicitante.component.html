@@ -1,0 +1,77 @@
+<body>
+  <header>
+    <div class="contenedor">
+      <h2 class="logotipo" href="#">
+        Gestión de Solicitantes
+      </h2>
+      <nav [class.active]="" id="navbar">
+        <a class="nav-link" [routerLink]="['/nav']" routerLinkActive="active">
+          <i class="fas fa-house-user"></i> <span>Inicio</span>
+        </a>
+        <a class="nav-link" [routerLink]="['/solicitante']" routerLinkActive="active">
+          <i class="fas fa-user-group"></i> <span>Solicitantes</span>
+        </a>
+        <a class="nav-link" [routerLink]="['/gestion-terrenos']" routerLinkActive="active">
+          <i class="fas fa-landmark"></i> <span>Terrenos</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1 class="my-4">Bienvenido a la Gestión de Solicitantes</h1>
+    <div class="table-container">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de Nacimiento</th>
+            <th>N°Cédula</th>
+            <th>Estado Civil</th>
+            <th>Barrio/Numero de casa</th>
+            <th>Ciudad</th>
+            <th>Provincia/Estado</th>
+            <th>Teléfono</th>
+            <th>Correo electrónico</th>
+            <!-- <th>Terreno</th> -->
+            <th>Archivo adjunto</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let solicitante of solicitantes">
+            <td>{{ solicitante.nombre }}</td>
+            <td>{{ solicitante.apellido }}</td>
+            <td>{{ solicitante.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
+            <td>{{ solicitante.numeroCedula }}</td>
+            <td>{{ solicitante.estadoCivil }}</td>
+            <td>{{ solicitante.coloniaBarrio }}</td>
+            <td>{{ solicitante.ciudad }}</td>
+            <td>{{ solicitante.estadoProvincia }}</td>
+            <td>{{ solicitante.telefono }}</td>
+            <td>{{ solicitante.correoElectronico }}</td>
+            <!-- <td>{{ solicitante.tipoTerreno }}</td> -->
+            <td>
+              <button *ngIf="solicitante.documentosAdjuntos" class="btn btn-primary"
+                (click)="openPDF(solicitante.documentosAdjuntos)">
+                Ver PDF
+              </button>
+            </td>
+            <td>
+              <span [ngClass]="{
+                  'estado-registro': true,
+                  'estado-pendiente': solicitante.estadoRegistro === 'pendiente',
+                  'estado-aceptado': solicitante.estadoRegistro === 'aceptado',
+                  'estado-rechazado': solicitante.estadoRegistro === 'rechazado'
+                }">
+                {{ solicitante.estadoRegistro }}
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-success" (click)="cambiarEstado(solicitante.id, 'procesando')">Aprobar</button>
+              <button class="btn btn-danger" (click)="cambiarEstado(solicitante.id, 'rechazado')">Rechazar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>

@@ -1,0 +1,93 @@
+<body>
+  <header>
+    <div class="contenedor">
+      <h2 class="logotipo">LAND MANAGER</h2>
+      <nav>
+        <a href="#" class="activo"> Inicio</a>
+        <a class="nav-link" [routerLink]="['/property-card']" routerLinkActive="active">
+          <i class="fas fa-book"></i> Catálogo
+        </a>
+        <a class="nav-link" [routerLink]="['/formulario']" routerLinkActive="active">
+          <i class="fas fa-file-alt"></i> Formulario
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="pelicula-principal">
+      <div class="contenedor">
+        <div class="container mt-5">
+          <div class="row">
+            <!-- Tarjeta Misión -->
+            <div class="col-md-6 d-flex justify-content-center">
+              <div class="card text-center">
+                <div class="card-header">
+                  <h3>Misión</h3>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Nuestra misión en TerraVende es facilitar el acceso a propiedades de calidad a
+                    nuestros clientes, ofreciendo terrenos que cumplen con los más altos estándares de ubicación,
+                    infraestructura y valor. Nos comprometemos a proporcionar un servicio excepcional, guiando a
+                    nuestros clientes a través de cada paso del proceso de compra para asegurar su satisfacción y
+                    confianza en nuestra experiencia.</p>
+                </div>
+                <div class="card-footer text-muted">
+                  &copy; 2024 Land Manager
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta Visión -->
+            <div class="col-md-6 d-flex justify-content-center">
+              <div class="card text-center">
+                <div class="card-header">
+                  <h3>Visión</h3>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">"Nos visualizamos como líderes en el mercado de bienes raíces, reconocidos por
+                    nuestra integridad, profesionalismo y el valor excepcional que aportamos a cada transacción.
+                    Buscamos expandir nuestra presencia nacional e internacionalmente, estableciendo relaciones
+                    duraderas con nuestros clientes y contribuyendo al desarrollo sostenible de comunidades mediante la
+                    venta responsable y ética de terrenos."</p>
+                </div>
+                <div class="card-footer text-muted">
+                  &copy; 2024 Land Manager
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="peliculas-recomendadas contenedor">
+      <div class="contenedor-titulo-controles">
+        <h3>Terrenos Recomendados</h3>
+        <div class="indicadores"></div>
+      </div>
+      <div class="contenedor-principal">
+        <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+        <div class="contenedor-carousel" #carouselContainer>
+          <div class="carousel">
+            <div class="pelicula" *ngFor="let image of images">
+              <a href="#"><img [src]="image.src" [alt]="image.alt"></a>
+            </div>
+          </div>
+        </div>
+        <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+      </div>
+    </div>
+  </main>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+  <script src="app/main.js" crossorigin="anonymous"></script>
+  <footer class="text-black text-center py-3">
+    <div class="container">
+      <h5>Elaborado por ITIN ESPE 2024</h5>
+      <p>&copy; 2024 ESPE. Todos los derechos reservados. Equipo Land Manager</p>
+      <div class="social-media mt-2">
+        <a href="#" class="text-black mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-black mx-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-black mx-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-black mx-2"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>

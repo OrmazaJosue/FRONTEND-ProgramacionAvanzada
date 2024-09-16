@@ -1,0 +1,73 @@
+<body>
+  <header>
+    <div class="contenedor">
+      <h2 class="logotipo">
+        Gestión de Terrenos
+      </h2>
+      <nav id="navbar">
+        <a class="nav-link" [routerLink]="['/nav']" routerLinkActive="active">
+          <i class="fas fa-house-user"></i> <span>Inicio</span>
+        </a>
+        <a class="nav-link" [routerLink]="['/solicitante']" routerLinkActive="active">
+          <i class="fas fa-user-group"></i> <span>Solicitantes</span>
+        </a>
+        <a class="nav-link" [routerLink]="['/gestion-terrenos']" routerLinkActive="active">
+          <i class="fas fa-landmark"></i> <span>Terrenos</span>
+        </a>
+        <a class="nav-link" [routerLink]="['/escritura']" routerLinkActive="active">
+          <i class="fas fa-file-alt"></i> Escritura
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1 class="my-4">
+      <i class="fas fa-map-marked-alt"></i> Bienvenido a la Gestión de Terreno
+    </h1>
+    <div class="table-container">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th><i class="fas fa-user" title="Nombre"></i></th>
+            <th><i class="fas fa-user-tie" title="Apellido"></i></th>
+            <th><i class="fas fa-id-card-alt" title="N°Cédula"></i></th>
+            <th><i class="fas fa-city" title="Ciudad"></i></th>
+            <th><i class="fas fa-envelope" title="Correo electrónico"></i></th>
+            <th><i class="fas fa-globe" title="Terrenos Escogidos"></i></th>
+            <th><i class="fas fa-file" title="Archivo de Pago"></i></th>
+            <th><i class="fas fa-info-circle" title="Estado"></i></th>
+            <th><i class="fas fa-tools" title="Acciones"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let terreno of terreno">
+            <td>{{ terreno.firstName }}</td>
+            <td>{{ terreno.lastName }}</td>
+            <td>{{ terreno.Cedula }}</td>
+            <td>{{ terreno.City }}</td>
+            <td>{{ terreno.Email }}</td>
+            <td>{{ terreno.terreno }}</td>
+            <td>{{ terreno.Document }}</td>
+            <td>{{ terreno.status }}</td>
+            <td>
+              <button class="btn btn-success btn-sm" *ngIf="terreno.status === 'Pendiente'"
+                (click)="approveTerreno(terreno)">
+                <i class="fas fa-check-circle"></i>
+                <!-- Aceptar -->
+              </button>
+              <button class="btn btn-danger btn-sm" *ngIf="terreno.status === 'Pendiente'"
+                (click)="dessaproveTerreno(terreno)">
+                <i class="fas fa-times-circle"></i>
+                <!-- Desaprobar -->
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="btn btn-secondary mt-4" (click)="goBack()">
+      <i class="fas fa-arrow-left"></i> Regresar
+    </button>
+  </div>
+</body>

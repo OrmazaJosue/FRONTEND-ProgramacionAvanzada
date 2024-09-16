@@ -1,0 +1,13 @@
+<div class="content">
+  <span class="invisible-text">Hello, {{ title }}</span>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<style>
+  .invisible-text {
+    color: transparent;
+    user-select: none;
+  }
+</style>

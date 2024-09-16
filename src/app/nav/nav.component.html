@@ -1,0 +1,41 @@
+<body>
+  <header>
+    <div class="contenedor">
+      <h2 class="logotipo">LAN MANAGER</h2>
+      <nav [class.active]="isNavActive" id="navbar">
+        <a class="navbar-brand" routerLink="/">
+          <i class="fas fa-home"></i>
+        </a>
+        <a class="nav-link" [routerLink]="['/solicitante']" routerLinkActive="active">
+          <i class="fas fa-user-edit"></i> Solicitante
+        </a>
+        <a class="nav-item" *ngIf="loggedInUser">
+          <span class="nav-link">
+            <i class="fas fa-user"></i> {{ loggedInUser }}
+          </span>
+        </a>
+        <a class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">
+            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+          </a>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="pelicula-principal">
+      <div class="contenedor">
+        <h3 class="titulo">LAN MANAGER</h3>
+        <p class="descripcion">
+          Explora la gestión de terrenos y propiedades, donde los profesionales del sector inmobiliario utilizan
+          herramientas avanzadas y estrategias innovadoras para superar los desafíos en la adquisición, desarrollo y
+          administración de terrenos. Desde la evaluación de la viabilidad de nuevos proyectos hasta la optimización de
+          las propiedades existentes, esta aventura ofrece una visión integral de cómo se gestionan eficazmente los
+          recursos y se maximiza el valor de las propiedades en un mercado dinámico y en constante evolución.
+        </p>
+      </div>
+    </div>
+  </main>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+</body>

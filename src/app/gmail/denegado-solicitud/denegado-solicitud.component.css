@@ -1,0 +1,118 @@
+   /* Estilos generales */
+   body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Color de texto principal */
+    background: linear-gradient(to bottom right, rgba(75, 202, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://i.imgur.com/k65qhRD.jpeg'); /* Fondo degradado celeste a blanco con imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-image: url("https://i.imgur.com/plxaFYC.jpeg");
+}
+
+/* Estilos de la tarjeta */
+.card {
+    background-color: #ffffff;
+    border: 8px solid #54a6b1; /* Borde de color azul */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    max-width: 600px;
+    margin: auto;
+    padding: 20px; /* Aumentado el padding */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease; /* Transición del sombreado */
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombreado más intenso al hacer hover */
+}
+
+/* Estilos del encabezado */
+.card-header {
+    background-color: #75c0c5;
+    color: #ffffff;
+    font-size: 16px; /* Tamaño de fuente reducido */
+    font-weight: bold;
+    padding: 8px; /* Reducido el padding */
+    text-align: center;
+    margin-bottom: 8px; /* Reducido el margen inferior */
+}
+
+/* Estilos del cuerpo del mensaje */
+.card-body {
+    padding: 10px; /* Reducido el padding */
+    background-color: #f8f9fa; /* Fondo gris claro */
+    border-radius: 8px;
+    margin-bottom: 10px; /* Reducido el margen inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+.card-body p {
+    margin-bottom: 8px; /* Reducido el margen inferior */
+    color: #555; /* Color de texto más oscuro */
+    text-align: justify; /* Texto justificado */
+    font-size: 14px;
+}
+
+/* Estilos del pie de página */
+.card-footer {
+
+    background-color: #eaf3f8;
+    border-top: 1px solid  #e7e2e2;;
+    padding: 8px;
+    text-align:center;
+     border-bottom-left-radius:
+     8px; border-bottom-right-radius: 8px; color: #a59f9f;
+     font-size: 15px;
+
+}
+
+/* Estilos para el contenido del mensaje */
+.email-content {
+    background-color: #ffffff; /* Fondo blanco para el contenido */
+    padding: 12px; /* Reducido el padding */
+    border-radius: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.email-content p {
+    margin-bottom: 8px; /* Reducido el margen inferior */
+    color: #555; /* Color de texto más oscuro */
+    text-align: justify; /* Texto justificado */
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.email-content hr {
+    margin: 10px 0; /* Reducido el margen */
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.card-img img {
+    width: 110px; /* Tamaño deseado para la imagen */
+    height: 110px; /* Asegura que la imagen sea cuadrada */
+    border-radius: 50%; /* Borde redondeado para hacerla circular */
+    display: block; /* Asegura que la imagen se muestre como bloque */
+    margin: auto; /* Centra la imagen dentro de su contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
+    box-shadow: 0 4px 8px rgba(61, 124, 161, 0.1); /* Sombra suave */
+    margin-bottom: 10px; /* Espacio reducido entre la imagen y el contenido de la tarjeta */
+}
+
+/* Estilos para el pie de página */
+.email-footer {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px; /* Reducido el margen superior */
+    color: #6d6b6b;
+}
+
+.email-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
